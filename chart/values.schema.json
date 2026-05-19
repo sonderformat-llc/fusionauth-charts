@@ -258,13 +258,22 @@
                 "engine": {
                     "type": "string"
                 },
+                "existingSecret": {
+                    "type": "string"
+                },
                 "host": {
+                    "type": "string"
+                },
+                "password": {
                     "type": "string"
                 },
                 "port": {
                     "type": "integer"
                 },
                 "protocol": {
+                    "type": "string"
+                },
+                "user": {
                     "type": "string"
                 }
             }

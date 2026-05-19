@@ -113,6 +113,18 @@ spec:
             - name: SEARCH_TYPE
               value: {{ .Values.search.engine }}
               {{- if eq .Values.search.engine "elasticsearch" }}
+              {{- if or .Values.search.existingSecret .Values.search.user }}
+            - name: OPENSEARCH_ADMIN_USER
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "fusionauth.search.secretName" . }}
+                  key: username
+            - name: OPENSEARCH_ADMIN_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "fusionauth.search.secretName" . }}
+                  key: password
+              {{- end }}
             - name: SEARCH_SERVERS
               value: "{{ .Values.search.protocol }}://{{ include "fusionauth.searchLogin" . }}{{- required "A valid elasticsearch host is required!" .Values.search.host -}}:{{ .Values.search.port }}"
               {{- end }}

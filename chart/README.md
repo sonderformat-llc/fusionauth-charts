@@ -471,13 +471,25 @@ You should now be able to connect to the FusionAuth application at http://localh
             <td><code>search.engine</code></td>
             <td>string</td>
             <td><code>"elasticsearch"</code></td>
-            <td>Protocol to use when connecting to elasticsearch. Ignored when <code>search.engine</code> is NOT <code>elasticsearch</code>.</td>
+            <td>Defines backend for fusionauth search capabilities. Valid values are <code>elasticsearch</code> or <code>database</code>.</td>
+        </tr>
+        <tr>
+            <td><code>search.existingSecret</code></td>
+            <td>string</td>
+            <td><code>""</code></td>
+            <td>The name of an existing Kubernetes Secret that contains the search credentials with <code>username</code> and <code>password</code> keys.</td>
         </tr>
         <tr>
             <td><code>search.host</code></td>
             <td>string</td>
             <td><code>""</code></td>
             <td>Hostname or ip to use when connecting to elasticsearch. Ignored when <code>search.engine</code> is NOT <code>elasticsearch</code>.</td>
+        </tr>
+        <tr>
+            <td><code>search.password</code></td>
+            <td>string</td>
+            <td><code>""</code></td>
+            <td>Password to use with basic auth when connecting to elasticsearch. Ignored when <code>search.engine</code> is NOT <code>elasticsearch</code>. Not required if <code>search.existingSecret</code> is configured.</td>
         </tr>
         <tr>
             <td><code>search.port</code></td>
@@ -490,6 +502,12 @@ You should now be able to connect to the FusionAuth application at http://localh
             <td>string</td>
             <td><code>"http"</code></td>
             <td>Protocol to use when connecting to elasticsearch. Ignored when <code>search.engine</code> is NOT <code>elasticsearch</code>.</td>
+        </tr>
+        <tr>
+            <td><code>search.user</code></td>
+            <td>string</td>
+            <td><code>""</code></td>
+            <td>Username to use with basic auth when connecting to elasticsearch. Ignored when <code>search.engine</code> is NOT <code>elasticsearch</code>. Not required if <code>search.existingSecret</code> is configured.</td>
         </tr>
         <tr>
             <td><code>securityContext</code></td>

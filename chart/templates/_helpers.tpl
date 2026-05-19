@@ -71,8 +71,8 @@ Configure TLS if enabled
 {{- end -}}
 
 {{- define "fusionauth.searchLogin" -}}
-{{- if .Values.search.user -}}
-{{- printf "%s:%s@" .Values.search.user .Values.search.password -}}
+{{- if or .Values.search.existingSecret .Values.search.user -}}
+{{- printf "$(OPENSEARCH_ADMIN_USER):$(OPENSEARCH_ADMIN_PASSWORD)@" -}}
 {{- else -}}
 {{- printf "" -}}
 {{- end -}}
@@ -93,6 +93,17 @@ Set name of secret to use for credentials
 {{- .Values.database.existingSecret -}}
 {{- else -}}
 {{ .Release.Name }}-credentials
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set name of secret to use for search credentials
+*/}}
+{{- define "fusionauth.search.secretName" -}}
+{{- if .Values.search.existingSecret -}}
+{{- .Values.search.existingSecret -}}
+{{- else -}}
+{{ .Release.Name }}-search-credentials
 {{- end -}}
 {{- end -}}
 

@@ -84,7 +84,7 @@ search:
   engine: elasticsearch
   # search.existingSecret -- The name of an existing secret that contains the search credentials. We expect two keys: `username` and `password`.
   existingSecret: ""
-  # search.engine -- Protocol to use when connecting to elasticsearch. Ignored when search.engine is NOT elasticsearch
+  # search.protocol -- Protocol to use when connecting to elasticsearch. Ignored when search.engine is NOT elasticsearch
   protocol: http
   # search.host -- Hostname or ip to use when connecting to elasticsearch. Ignored when search.engine is NOT elasticsearch
   host: elasticsearch-master.default.svc.cluster.local

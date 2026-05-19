@@ -471,7 +471,7 @@ You should now be able to connect to the FusionAuth application at http://localh
             <td><code>search.engine</code></td>
             <td>string</td>
             <td><code>"elasticsearch"</code></td>
-            <td>Defines backend for fusionauth search capabilities. Valid values are <code>elasticsearch</code> or <code>database</code>.</td>
+            <td>Defines backend for FusionAuth search capabilities. Valid values are <code>elasticsearch</code> or <code>database</code>.</td>
         </tr>
         <tr>
             <td><code>search.existingSecret</code></td>
